@@ -33,7 +33,7 @@ Template for ever page
 
 			<div id="menu">
 				<div class="pure-menu pure-menu-open">
-					<a class="pure-menu-heading" href="#"><h3>LoremIpsum</h3></a>
+					<a class="pure-menu-heading" href="#"><h3>{{ Auth::user()->user }}</h3></a>
 					<ul>
 						<li><a href="#" tabindex="1"><b>Inventory</b></a></li> <!--"By giving it a tabindex you can make any element you like focusable. 
 						The focus and blur events should work on such elements." Works in all browsers: -->
