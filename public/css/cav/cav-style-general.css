@@ -8,6 +8,11 @@
 .cav-padded-1 {
     padding: 1em;
 }
+
+.cav-padded-2 {
+    padding: 2em;
+}
+
 .cav-margin-auto {
     margin: auto;
 }

@@ -45,7 +45,7 @@ Template for ever page
 				</div>
 			</div>
 
-			<div id="main">
+			<div id="main" class="cav-padded-2">
 			<!--	<div class="header" style="padding-top: 1em">
 					<img src="Cavitech.png"/>
 				</div>
@@ -57,6 +57,7 @@ Template for ever page
 					Telefax: (046) 450-5947</br>
 					Address: Block 3A Lot 4, Westridge Residence, Diamond Street, Salawag Dasmariñas, Cavite City </p>
 				</div> -->
+                @yield('view')
 			</div>
 		</div>
 
