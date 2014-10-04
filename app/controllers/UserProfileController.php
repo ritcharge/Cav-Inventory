@@ -54,9 +54,9 @@ class UserProfileController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($username)
 	{
-		//
+		return View::make('userProfile.edit', ['username' => $username]);
 	}
 
 
