@@ -1,4 +1,4 @@
-@import('layouts.default')
+@extends('layouts.default')
 
 @section('title')
     Change Password
@@ -9,9 +9,13 @@
     <div>
         {{ Form::open(['userProfile.update', 'class' => 'pure-form pure-form-stacked']) }}
             
-        {{ Form::password('old_password'), ['placeholder' => 'Current Password'] }}
-        {{ Form::password('new_password'), ['placeholder' => 'New Password'] }}
-        {{ Form::password('re_password'), ['placeholder' => 'Retype New Password'] }}
+        {{ Form::password('old_password', ['placeholder' => 'Current Password']) }}
+        {{ Form::password('new_password', ['placeholder' => 'New Password']) }}
+        {{ Form::password('re_password', ['placeholder' => 'Re-type New Password']) }}
+        
+        {{ Form::submit('Save', ['class' => 'pure-button pure-button-primary']) }}
+        or 
+        <a class="pure-button" href="{{ action('UserProfileController@show', Auth::user()->username) }}">Cancel</a>
         
         {{ Form::close() }}
     </div>
