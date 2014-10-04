@@ -44,7 +44,6 @@ Template for ever page
 					</ul>
 				</div>
 			</div>
-
 			<div id="main" class="cav-padded-2">
 			<!--	<div class="header" style="padding-top: 1em">
 					<img src="Cavitech.png"/>
