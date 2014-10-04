@@ -1,0 +1,21 @@
+/*
+ * Author: R Daitan
+ * Please feel free to modify this. However, if you do so,
+ * try to make it follow this convention that I'm following.
+ */
+
+/*Style For Most Elements*/
+.cav-padded-1 {
+    padding: 1em;
+}
+.cav-margin-auto {
+    margin: auto;
+}
+
+.cav-max-width-16 {
+    max-width: 16em;
+}
+
+.cav-width-16 {
+    width: 16em;
+}
