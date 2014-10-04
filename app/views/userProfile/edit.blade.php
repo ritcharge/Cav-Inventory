@@ -7,7 +7,7 @@
 @section('view')
     <div><h2>Change Password</h2></div>
     <div>
-        {{ Form::open(['userProfile.update', 'class' => 'pure-form pure-form-stacked']) }}
+        {{ Form::open(['userProfile.update', 'class' => 'pure-form pure-form-stacked cav-form-stacked-1']) }}
             
         {{ Form::password('old_password', ['placeholder' => 'Current Password']) }}
         {{ Form::password('new_password', ['placeholder' => 'New Password']) }}

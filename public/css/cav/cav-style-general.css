@@ -24,3 +24,12 @@
 .cav-width-16 {
     width: 16em;
 }
+
+.cav-padded-top-bottom-1 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.cav-form-stacked-1 * {
+    margin-bottom: 1em !important;
+}
