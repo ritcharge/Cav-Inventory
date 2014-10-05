@@ -29,10 +29,10 @@ This is the parent `<div>` that contains the menu and the content area.
 */
 #layout {
     position: relative;
-    padding-left: 0;
 }
     #layout.active { /* Inedit para di na mag-move 'yung content*/
         position: relative;
+		/*left: 150px;*/
         /* left: 220px; tinanggal para di na mag-move*/
     }
         #layout.active #menu {
@@ -79,9 +79,6 @@ The content `<div>` is where all your content goes.
     font-weight: 300;
     color: #1A1A1A;
 }
-
-
-
 /*
 The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
 appears on the left side of the page.
@@ -100,7 +97,7 @@ appears on the left side of the page.
     -webkit-overflow-scrolling: touch;
 	font-family: Sans-Serif;
 	font-size: 1em;
-	border: 1px solid #647070;
+	border-left: 1px solid #647070;
 	text-shadow: #1A1A1A 0.1em 0.1em 0.1em;
 }
     /*
@@ -166,7 +163,6 @@ appears on the left side of the page.
         color: #fff;
         margin: 0;
     }
-
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
 
 /*
@@ -183,19 +179,17 @@ small screens.
     display: block; /* show this only on small screens */
     top: 0;
     left: 0; /* "#menu width" */
-    background: #000;
-    background: rgba(0,0,0,0.7);
+    background:  #8099B2;
     font-size: 10px; /* change this value to increase/decrease button size */
     z-index: 10;
     width: 2em;
     height: auto;
     padding: 2.1em 1.6em;
-
 }
 
     .menu-link:hover,
     .menu-link:focus {
-        background: #000;
+        background:  #34495E;
     }
 
     .menu-link span {
@@ -254,4 +248,3 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         left: 220px;
     }
 }
-

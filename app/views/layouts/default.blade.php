@@ -19,8 +19,8 @@ Template for ever page
             {{ HTML::style('css/pure-release-0.5.0/grids-responsive-min.css'); }}
             {{ HTML::style('css/layouts/side-menu.css') }}
         <!--<![endif]-->
-        {{ HTML::script('js/ui.js') }}
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
     
@@ -36,8 +36,8 @@ Template for ever page
 					<a class="pure-menu-heading" href="{{ action('UserProfileController@show', Auth::user()->username) }}">
                         <h3>{{ Auth::user()->username }}</h3></a>
 					<ul>
-						<li><a href="#" tabindex="1"><b>Inventory</b></a></li> <!--"By giving it a tabindex you can make any element you like focusable. 
-						The focus and blur events should work on such elements." Works in all browsers: -->
+						<li><a href="#" tabindex="1"><b>Inventory</b></a></li> <!--"By giving it a tabindex you can make any element you
+						like focusable. The focus and blur events should work on such elements." Works in all browsers: -->
 						<li><a href="#" tabindex="2"><b>Purchase Orders</b></a></li>
 						<li><a href="#" tabindex="3"><b>Supplier</b></a></li>
 						<li><a href="#" tabindex="4"><b>Account Settings</b></a></li>
@@ -59,6 +59,6 @@ Template for ever page
                 @yield('view')
 			</div>
 		</div>
-
+	{{ HTML::script('js/ui.js') }}
     </body>
 </html>
