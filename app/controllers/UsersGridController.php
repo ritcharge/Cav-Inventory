@@ -9,8 +9,7 @@ class UsersGridController extends \BaseController {
 	 */
 	public function index()
 	{
-//		return 'Show all users.';
-        return Auth::user()->userType->description;
+		return View::make('usersGrid.index');
 	}
 
 

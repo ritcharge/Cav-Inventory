@@ -33,3 +33,16 @@
 .cav-form-stacked-1 * {
     margin-bottom: 1em !important;
 }
+
+.cav-width-1-1 {
+    width:100%;
+}
+
+.cav-toolbar-left-1 {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.cav-toolbar-left-1 * {
+    margin-right: 1em !important;
+}
