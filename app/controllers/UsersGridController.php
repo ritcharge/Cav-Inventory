@@ -25,13 +25,13 @@ class UsersGridController extends \BaseController {
 
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a newly created user in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 

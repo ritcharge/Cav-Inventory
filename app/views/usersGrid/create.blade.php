@@ -5,7 +5,7 @@
 @stop
 
 @section('view')
-    {{ Form::open(['route' => 'usersGrid.create', 'class' => 'pure-form pure-form-aligned cav-form-stacked-1']) }}
+    {{ Form::open(['route' => 'usersGrid.store', 'class' => 'pure-form pure-form-aligned cav-form-stacked-1']) }}
         <div class="pure-control-group">
             {{ Form::label('username', 'Username: ') }}
             {{ Form::text('username') }}
