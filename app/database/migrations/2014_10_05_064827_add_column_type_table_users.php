@@ -14,7 +14,8 @@ class AddColumnTypeTableUsers extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			//
+			$table->integer('type')->unsigned()->nullable()->after('password');
+            $table->foreign('type')->references('id')->on('user_types')->onDelete('set null')->onUpdate('cascade');
 		});
 	}
 
@@ -27,7 +28,8 @@ class AddColumnTypeTableUsers extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			//
+			// Naming convention for parameter is <this table>_<column>_foreign
+            $table->dropForeign('users_type_foreign');
 		});
 	}
 
