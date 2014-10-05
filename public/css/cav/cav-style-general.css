@@ -61,6 +61,7 @@
 .cav-grid-table thead tr th:first-child,
 .cav-grid-table tbody tr td:first-child {
     text-align: center !important;
+    width: 1em !important;
 }
 
 .cav-grid-table thead tr th:last-child,
