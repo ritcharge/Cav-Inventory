@@ -3,7 +3,7 @@
 class UsersGridController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the users.
 	 *
 	 * @return Response
 	 */
@@ -14,13 +14,13 @@ class UsersGridController extends \BaseController {
 
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new user.
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		//
+		return View::make('usersGrid.create');
 	}
 
 
