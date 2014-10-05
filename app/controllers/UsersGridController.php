@@ -9,7 +9,8 @@ class UsersGridController extends \BaseController {
 	 */
 	public function index()
 	{
-		return 'Show all users.';
+//		return 'Show all users.';
+        return Auth::user()->type;
 	}
 
 
