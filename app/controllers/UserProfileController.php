@@ -1,7 +1,7 @@
 <?php
 
 class UserProfileController extends \BaseController {
-
+    
     function __construct() {
         $this->beforeFilter('auth');
     }
@@ -32,17 +32,27 @@ class UserProfileController extends \BaseController {
 
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the password of the user.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($username)
 	{
-		// Check if old_password matches stored password.
-        // Check if new_password === re_password.
-        // If both are true, update password and go to user profile.
-        // If not, go back.
-        return 'UPDATE USER PASSWORD';
+        $user = Auth::user();
+        $validation = Validator::make(Input::all(), [
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+            'new_password_confirmation' => 'required'
+        ]);
+        
+        if($validation->fails()) return Redirect::back();
+        
+        if(!Hash::check(Input::get('old_password'), $user->password)) return Redirect::back();
+        
+        $user->password = Hash::make(Input::get('new_password'));
+        $user->save();
+        
+        return Redirect::to('/logout');
 	}
 }

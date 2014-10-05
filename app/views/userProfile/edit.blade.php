@@ -11,7 +11,7 @@
             
         {{ Form::password('old_password', ['placeholder' => 'Current Password']) }}
         {{ Form::password('new_password', ['placeholder' => 'New Password']) }}
-        {{ Form::password('re_password', ['placeholder' => 'Re-type New Password']) }}
+        {{ Form::password('new_password_confirmation', ['placeholder' => 'Retype New Password']) }}
         
         {{ Form::submit('Save', ['class' => 'pure-button pure-button-primary']) }}
         or 
