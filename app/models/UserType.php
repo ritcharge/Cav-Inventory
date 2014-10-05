@@ -7,8 +7,4 @@
 class UserType extends Eloquent {
     
     protected $table = 'user_types';
-    
-    public function type() {
-        return $this->hasOne('UserType');
-    }
 }

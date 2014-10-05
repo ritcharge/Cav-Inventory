@@ -25,4 +25,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+    public function userType() {
+        // hasOne('Model', 'id column of foreign key', 'local column with foreign key')
+        return $this->hasOne('UserType', 'id', 'type');
+    }
 }
