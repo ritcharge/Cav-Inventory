@@ -5,7 +5,7 @@
 @stop
 
 @section('toolbar')
-    <a class="pure-button pure-button-primary">Add User</a>
+    <a class="pure-button pure-button-primary" href="{{ route('usersGrid.create') }}">Add User</a>
 @stop
 
 @section('table-headers')
