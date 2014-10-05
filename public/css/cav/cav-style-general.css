@@ -41,8 +41,15 @@
 .cav-toolbar-left-1 {
     padding-bottom: 1em;
     padding-top: 1em;
+    text-align: left;
 }
 
 .cav-toolbar-left-1 * {
     margin-right: 1em !important;
+}
+
+.cav-toolbar-right-1 {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    text-align: right;
 }
