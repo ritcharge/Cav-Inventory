@@ -7,7 +7,7 @@
 @section('view')
     <div><h2>Change Password</h2></div>
     <div>
-        {{ Form::open(['route' => ['userProfile.update', Auth::user()->username], 'method' => 'PUT', 'class' => 'pure-form pure-form-stacked cav-form-stacked-1']) }}
+        {{ Form::open(['route' => ['userProfile.update', Auth::user()->username], 'method' => 'PATCH', 'class' => 'pure-form pure-form-stacked cav-form-stacked-1']) }}
             
         {{ Form::password('old_password', ['placeholder' => 'Current Password']) }}
         {{ Form::password('new_password', ['placeholder' => 'New Password']) }}
