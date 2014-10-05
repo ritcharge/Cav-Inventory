@@ -23,5 +23,5 @@ Route::get('/login', 'SessionsController@create');
 Route::get('/logout', 'SessionsController@destroy');
 
 // USER PROFILE PAGE
-Route::resource('userProfile', 'UserProfileController' );
-Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
+Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'update', 'edit']]);
+//Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
