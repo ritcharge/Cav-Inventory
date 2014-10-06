@@ -31,7 +31,9 @@ class UsersGridController extends \BaseController {
 	 */
 	public function store()
 	{
-		
+		if(User::isValid(Input::all())) return 'Passed';
+        
+        return 'Failed';
 	}
 
 

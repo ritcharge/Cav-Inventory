@@ -29,4 +29,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         // hasOne('Model', 'id column of foreign key', 'local column with foreign key')
         return $this->hasOne('UserType', 'id', 'type');
     }
+    
+    public static function isValid($input) {
+        $validate = Validator::make($input, [
+            'username' => 'sometimes|required|alpha_num',
+            'first_name' => 'sometimes|required|alpha',
+            'last_name' => 'sometimes|required|alpha',
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
+        ]);
+        
+        return $validate->passes();
+    }
 }
