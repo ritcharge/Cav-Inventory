@@ -33,7 +33,7 @@
                 {{ $user->userType['description'] }}
             </td>
             <td>
-                <a class="pure-button">Edit</a>
+                <a class="pure-button" href="{{ route('usersGrid.edit', $user->id) }}">Edit</a>
             </td>
         </tr>
     @endforeach

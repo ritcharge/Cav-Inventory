@@ -73,7 +73,7 @@ class UsersGridController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('usersGrid.edit', ['usersGrid' => $id]);
 	}
 
 
