@@ -5,7 +5,9 @@
 @stop
 
 @section('toolbar')
-    <a class="pure-button pure-button-primary" href="{{ route('usersGrid.create') }}">Add User</a>
+    {{ Form::open(['route' => ['usersGrid.destroy', 'delete'], 'method' => 'DELETE']) }}
+        <a class="pure-button pure-button-primary" href="{{ route('usersGrid.create') }}">Add User</a>
+        {{ Form::submit('Delete', ['class' => 'pure-button']) }}
 @stop
 
 @section('table-headers')
@@ -21,7 +23,8 @@
         <tr>
             <td>
                 <!--TEMPORARY. REPLACE WITH PROPER CHECKBOX THRU FORMBUILDER-->
-                <input type="checkbox" class="pure-checkbox"/>
+                <!--<input type="checkbox" class="pure-checkbox"/>-->
+                {{ Form::checkbox('for_delete[]', $user->id, false, ['class' => 'pure-checkbox']) }}
             </td>
             <td>
                 {{ $user->username }}
@@ -37,4 +40,5 @@
             </td>
         </tr>
     @endforeach
+    {{ Form::close() }}
 @stop
