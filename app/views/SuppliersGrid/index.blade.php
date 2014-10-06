@@ -1,10 +1,10 @@
-
-/**
- * Created by PhpStorm.
- * User: LACHICA
- * Date: 10/6/14
- * Time: 10:39 AM
- */
+<!---->
+<!--/**-->
+<!-- * Created by PhpStorm.-->
+<!-- * User: LACHICA-->
+<!-- * Date: 10/6/14-->
+<!-- * Time: 10:39 AM-->
+<!-- */-->
 @extends('layouts.grid')
 
 @section('title')

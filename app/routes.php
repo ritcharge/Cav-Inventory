@@ -23,11 +23,19 @@ Route::get('/login', 'SessionsController@create');
 Route::get('/logout', 'SessionsController@destroy');
 
 // USER PROFILE PAGE
-Route::resource('userProfile', 'UserProfileController' );
-Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
+//<<<<<<< HEAD
+//Route::resource('userProfile', 'UserProfileController' );
+//Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
 
 Route::get('suppliers',function(){$suppliers = Supplier::all();
 
 
     return View::make('SuppliersGrid.index');
 });
+//=======
+Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'update', 'edit']]);
+//Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
+
+// USERS GRID
+Route::resource('usersGrid', 'UsersGridController');
+//>>>>>>> upstream/r-dev-branch

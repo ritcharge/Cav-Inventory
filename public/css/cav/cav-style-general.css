@@ -8,6 +8,11 @@
 .cav-padded-1 {
     padding: 1em;
 }
+
+.cav-padded-2 {
+    padding: 2em;
+}
+
 .cav-margin-auto {
     margin: auto;
 }
@@ -18,4 +23,48 @@
 
 .cav-width-16 {
     width: 16em;
+}
+
+.cav-padded-top-bottom-1 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.cav-form-stacked-1 * {
+    margin-bottom: 1em !important;
+}
+
+.cav-width-1-1 {
+    width:100%;
+}
+
+.cav-toolbar-left-1 {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    text-align: left;
+}
+
+.cav-toolbar-left-1 * {
+    margin-right: 1em !important;
+}
+
+.cav-toolbar-right-1 {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    text-align: right;
+}
+
+.cav-grid-table {
+    text-align: left;
+}
+
+.cav-grid-table thead tr th:first-child,
+.cav-grid-table tbody tr td:first-child {
+    text-align: center !important;
+    width: 1em !important;
+}
+
+.cav-grid-table thead tr th:last-child,
+.cav-grid-table tbody tr td:last-child {
+    text-align: right !important;
 }

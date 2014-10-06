@@ -1,40 +1,11 @@
 <?php
 
 class UserProfileController extends \BaseController {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
+    
+    function __construct() {
+        $this->beforeFilter('auth');
+    }
+    
 	/**
 	 * Display the specified resource.
 	 *
@@ -54,34 +25,34 @@ class UserProfileController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($username)
 	{
-		//
+		return View::make('userProfile.edit', ['username' => $username]);
 	}
 
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the password of the user.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($username)
 	{
-		//
+        $user = Auth::user();
+        $validation = Validator::make(Input::all(), [
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+            'new_password_confirmation' => 'required'
+        ]);
+        
+        if($validation->fails()) return Redirect::back();
+        
+        if(!Hash::check(Input::get('old_password'), $user->password)) return Redirect::back();
+        
+        $user->password = Hash::make(Input::get('new_password'));
+        $user->save();
+        
+        return Redirect::to('/logout');
 	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
-
 }

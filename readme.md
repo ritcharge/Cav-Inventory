@@ -7,5 +7,14 @@ Final project for first semester.
 >Carl Bernal
 > Denise Lachica
 >Julito Galupo
+<<<<<<< HEAD
 
 hello r bitch!
+=======
+> Jekka Abutin
+> Richard Aquino
+
+
+## Mockups
+https://moqups.com/r.b.daitan@gmail.com/dJ3HuS6H
+>>>>>>> upstream/r-dev-branch
