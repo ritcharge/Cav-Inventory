@@ -25,3 +25,9 @@ Route::get('/logout', 'SessionsController@destroy');
 // USER PROFILE PAGE
 Route::resource('userProfile', 'UserProfileController' );
 Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
+
+Route::get('suppliers',function(){$suppliers = Supplier::all();
+
+
+    return View::make('SuppliersGrid.index');
+});

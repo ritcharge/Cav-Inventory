@@ -25,7 +25,7 @@
 @stop
 
 @section('table-contents')
-    @foreach(Supplier::all() as $supplier)
+    @foreach(Supplier::all() as $suppliers)
         <tr>
             <td>
                 <!--TEMPORARY. REPLACE WITH PROPER CHECKBOX THRU FORMBUILDER-->
