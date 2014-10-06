@@ -16,7 +16,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'users';
     
-    protected $fillable = ['username', 'password', 'first_name', 'last_name'];
+    protected $fillable = ['username', 'password', 'type', 'first_name', 'last_name'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -25,6 +25,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+    /** 
+     * To get description of user type, use this function like so:
+     * $user->userType['description'];
+     */
     public function userType() {
         // hasOne('Model', 'id column of foreign key', 'local column with foreign key')
         return $this->hasOne('UserType', 'id', 'type');

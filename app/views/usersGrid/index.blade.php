@@ -12,6 +12,7 @@
     <th></th>
     <th>Username</th>
     <th>Name</th>
+    <th>Type</th>
     <th>Action</th>
 @stop
 
@@ -27,6 +28,9 @@
             </td>
             <td>
                 {{ "$user->first_name $user->last_name" }}
+            </td>
+            <td>
+                {{ $user->userType['description'] }}
             </td>
             <td>
                 <a class="pure-button">Edit</a>

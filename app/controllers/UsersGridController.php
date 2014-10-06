@@ -35,11 +35,14 @@ class UsersGridController extends \BaseController {
         
 		if(User::isValid($input)) {
             // Create new user
+            
+//            return $input['user_type'];
+            
             User::create([
                 'username' => $input['username'],
                 'first_name' => $input['first_name'],
                 'last_name' => $input['last_name'],
-                'type' => (int) $input['user_type'],
+                'type' => $input['user_type'],
                 'password' => Hash::make($input['password'])
             ]);
             
