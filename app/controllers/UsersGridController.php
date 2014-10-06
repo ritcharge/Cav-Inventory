@@ -109,7 +109,11 @@ class UsersGridController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$usersForDeletion = Input::get('for_delete');
+        
+        foreach($usersForDeletion as $user) User::find($user)->delete();
+        
+        return Redirect::route('usersGrid.index');
 	}
 
 
