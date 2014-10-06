@@ -31,9 +31,22 @@ class UsersGridController extends \BaseController {
 	 */
 	public function store()
 	{
-		if(User::isValid(Input::all())) return 'Passed';
+        $input = Input::all();
         
-        return 'Failed';
+		if(User::isValid($input)) {
+            // Create new user
+            User::create([
+                'username' => $input['username'],
+                'first_name' => $input['first_name'],
+                'last_name' => $input['last_name'],
+                'type' => (int) $input['user_type'],
+                'password' => Hash::make($input['password'])
+            ]);
+            
+            return Redirect::route('usersGrid.index');
+        }
+        
+        return Redirect::back();
 	}
 
 
