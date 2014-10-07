@@ -49,7 +49,7 @@ class UsersGridController extends \BaseController {
             return Redirect::route('usersGrid.index');
         }
         
-        return Redirect::back();
+        return Redirect::back()->withInput();
 	}
 
 
