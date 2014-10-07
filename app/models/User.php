@@ -39,8 +39,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             'username' => 'sometimes|required|alpha_num',
             'first_name' => 'sometimes|required|alpha',
             'last_name' => 'sometimes|required|alpha',
-            'password' => 'required|confirmed',
-            'password_confirmation' => 'required'
+            'password' => 'sometimes|required|confirmed',
+            'password_confirmation' => 'sometimes|required'
         ]);
         
         return $validate->passes();

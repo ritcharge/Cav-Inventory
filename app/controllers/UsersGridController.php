@@ -66,26 +66,38 @@ class UsersGridController extends \BaseController {
 
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * Show the form for editing the specified user.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('usersGrid.edit', ['usersGrid' => $id]);
 	}
 
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the specified user in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-		//
+		if(User::isValid(Input::all())) {
+            $user = User::find($id);
+            $user->username = Input::get('username');
+            $user->first_name = Input::get('first_name');
+            $user->last_name = Input::get('last_name');
+            $user->type = Input::get('user_type');
+//            $user->password = Hash::make(Input::get('password'));
+            $user->save();
+            
+            return Redirect::route('usersGrid.index');
+        }
+        
+        return "ERROR";
 	}
 
 
@@ -97,7 +109,11 @@ class UsersGridController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$usersForDeletion = Input::get('for_delete');
+        
+        foreach($usersForDeletion as $user) User::find($user)->delete();
+        
+        return Redirect::route('usersGrid.index');
 	}
 
 
