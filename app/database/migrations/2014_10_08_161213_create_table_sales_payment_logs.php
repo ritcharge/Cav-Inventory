@@ -18,7 +18,7 @@ class CreateTableSalesPaymentLogs extends Migration {
             $table->integer('sales_id')->unsigned();
             $table->float('amount')->unsigned();
             $table->integer('receipt_number')->unsigned();
-			$table->timestamps();
+			$table->timestamps(); 
 		});
 	}
 
