@@ -18,6 +18,7 @@ class CreateTableProducts extends Migration {
             $table->string('product_name')->unique();
             $table->float('selling_price')->unsigned()->default('0.00');
             $table->integer('quantity')->unsigned()->default('0');
+            // When creating a foreign key column, make sure its attributes are the same as the primary key it's refering to.
             $table->integer('product_type_id')->unsigned()->nullable();
             $table->foreign('product_type_id')->references('id')->on('product_types')->onDelete('set null')->onUpdate('cascade');
             $table->integer('brand_id')->unsigned()->nullable();
