@@ -68,3 +68,13 @@
 .cav-grid-table tbody tr td:last-child {
     text-align: right !important;
 }
+
+.cav-error {
+    background: #ed2b50;
+    border-radius: 0.2em;
+    color: white;
+    display: inline-block;
+/*    margin-left: 0.5em;*/
+    padding: 0.5em;
+    vertical-align: middle;
+}
