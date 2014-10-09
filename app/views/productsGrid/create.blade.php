@@ -9,10 +9,10 @@ Add New Product
 {{ Form::open(['route' => 'productsGrid.store']) }}
 
 {{ Form::label('product_type_id', 'Product Type') }}
-<!-- TODO: Add select form -->
+{{ Form::select('product_type_id', ProductType::lists('description', 'id'), 1) }}
 
 {{ Form::label('brand_id', 'Brand') }}
-<!-- TODO: Add select form -->
+{{ Form::select('brand_id', Brand::lists('name', 'id'), 1) }}
 
 {{ Form::label('product_name', 'Product Name') }}
 {{ Form::text('product_name') }}

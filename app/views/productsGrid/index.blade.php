@@ -17,7 +17,7 @@ Products
 @stop
 
 @section('table-contents')
-@foreach(Product::all as $product)
+@foreach(Product::all() as $product)
 
 <tr>
     <td><!-- CHECKBOX --></td>
