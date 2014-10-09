@@ -5,5 +5,9 @@
         
         protected $fillable = ['product_id', 'quantity', 'transaction_type_id'];
 
+        public function product() {
+            
+            return $this->belongsTo('Product');
+        }
     }
 ?>

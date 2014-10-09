@@ -5,5 +5,9 @@
         
         protected $fillable = ['sales_id', 'amount', 'receipt_number'];
 
+        public function sales() {
+            
+            return $this->belongsTo('Sales');
+        }
     }
 ?>
