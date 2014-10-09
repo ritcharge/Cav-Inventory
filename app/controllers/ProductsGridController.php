@@ -45,7 +45,19 @@ class ProductsGridController extends \BaseController {
 
 	public function update($id)
 	{
-		//
+		$product = Product::find($id);
+        $input = Input::all();
+        
+        // TODO validation
+        
+        $product->product_name = $input['product_name'];
+        $product->selling_price = $input['selling_price'];
+        $product->quantity = $input['quantity'];
+        $product->product_type_id = $input['product_type_id'];
+        $product->brand_id = $input['brand_id'];
+        $product->save();
+        
+        return Redirect::route('productsGrid.index');
 	}
 
 	public function destroy($id)
