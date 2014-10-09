@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder {
         $this->call('UserTypesTableSeeder');
 		$this->call('UserTableSeeder');
         $this->call('ProductTypeSeeder');
+        $this->call('BrandSeeder');
         
         $this->command->info('User table seeded!');
 	}
@@ -56,8 +57,20 @@ class ProductTypeSeeder extends Seeder {
             'Sound card', 'Speaker', 'Tablet PC', 'TV Tuner/Card', 'UPS', 'Video Card', 'Webcam'
         ];
         
+        DB::table('product_types')->delete();
+        
+        foreach($productTypes as $type) ProductType::create(['description' => $type]);
+    }
+}
+
+class BrandSeeder extends Seeder {
+    
+    public function run() {
+        
+        $brands = ['DELL', 'HP', 'Asus', 'Intel', 'Epson', 'Acer', 'Fujitsu', 'Seagate', 'Asustek', 'Redfox', 'IBM', 'Infocus'];
+        
         DB::table('brands')->delete();
         
-        foreach($productTypes as $type) Brand::create(['name' => $type]);
+        foreach($brands as $brand) Brand::create(['name' => $brand]);
     }
 }
