@@ -9,5 +9,7 @@ Class Supplier extends Eloquent {
 
     protected $table = 'suppliers';
     protected $fillable = ['company', 'address', 'contact', 'contact_person'];
+    public  $timestamps = false;
+
 }
 ?>

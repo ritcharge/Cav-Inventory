@@ -39,3 +39,5 @@ Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'upd
 // USERS GRID
 Route::resource('usersGrid', 'UsersGridController');
 //>>>>>>> upstream/r-dev-branch
+//SUPPLIERS
+Route::resource('SuppliersGrid', 'SuppliersGridController');
