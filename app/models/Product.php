@@ -18,4 +18,9 @@ class Product extends Eloquent {
         
         return $this->belongsTo('ProductType');
     }
+    
+    public function logs() {
+        
+        return $this->hasMany('InventoryLog');
+    }
 }
