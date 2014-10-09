@@ -38,6 +38,13 @@ Add New Sales Invoice
         dropdownDiv.appendChild(dropdown);
         dropdownGroup.appendChild(dropdownDiv);
         
+        // Buttons
+        var addButton = document.createElement('a');
+        var addText = document.createTextNode('+');
+        addButton.setAttribute('onclick', 'addNewItemDropDown()');
+        addButton.appendChild(addText);
+        dropdownGroup.appendChild(addButton);
+        
         <?php
         
         $productTypes = ProductType::orderBy('description')->get();
@@ -88,6 +95,7 @@ Add New Sales Invoice
         }
         
         ?>    
+            
     }
 </script>
 
