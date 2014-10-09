@@ -4,6 +4,8 @@
         protected $table = 'brands';
         
         protected $fillable = ['name'];
-
+        
     }
+
+}
 ?>
