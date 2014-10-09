@@ -7,15 +7,9 @@ class SalesGridController extends \BaseController {
 		return View::make('salesGrid.index');
 	}
 
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
-		//
+		return View::make('salesGrid.create');
 	}
 
 
