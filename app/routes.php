@@ -28,3 +28,7 @@ Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'upd
 
 // USERS GRID
 Route::resource('usersGrid', 'UsersGridController');
+
+// PRODUCTS GRID
+Route::resource('productsGrid', 'ProductsGridController');
+
