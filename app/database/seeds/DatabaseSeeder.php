@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder {
 
         $this->call('UserTypesTableSeeder');
 		$this->call('UserTableSeeder');
+        $this->call('ProductTypeSeeder');
         
         $this->command->info('User table seeded!');
 	}
@@ -41,5 +42,22 @@ class UserTypesTableSeeder extends Seeder {
             ['description' => 'Administrator'],
             ['description' => 'Standard']
         ]);
+    }
+}
+
+class ProductTypeSeeder extends Seeder {
+    
+    public function run() {
+        $productTypes = [
+            'Antivirus', 'AVR', 'Casing', 'CPU Fan', 'Custom PC', 'Custom Server', 'Desktop PC', 'External Optical Drive', 
+            'Game Controller', 'Hard Disk Drive', 'Internal Optical Drive', 'Keyboard', 'Laptop', 'Memory', 'Memory Card and Reader', 
+            'Microsoft Products', 'Modem', 'Monitor', 'Motherboard', 'Mouse', 'Mouse and Keyboard Combo', 'Netbook', 'Networking Products', 
+            'Other Software', 'POS Harware', 'POS Software', 'Power Supplies', 'Processor', 'Projector', 'Scanner', 'Server', 'Smartphone', 
+            'Sound card', 'Speaker', 'Tablet PC', 'TV Tuner/Card', 'UPS', 'Video Card', 'Webcam'
+        ];
+        
+        DB::table('brands')->delete();
+        
+        foreach($productTypes as $type) Brand::create(['name' => $type]);
     }
 }
