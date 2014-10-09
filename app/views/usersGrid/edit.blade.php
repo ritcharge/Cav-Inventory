@@ -20,9 +20,9 @@
         </div>
         <div class="pure-control-group">
             {{ Form::label('user_type', 'User Type:') }}
-            {{ Form::select('user_type', UserType::lists('description', 'id')) }}
+            {{ Form::select('user_type', UserType::lists('description', 'id'), User::find($usersGrid)->userType['id']) }}
         </div>
-{{--
+<!--
         <div class="pure-control-group">
             {{ Form::label('password', 'Password:') }}
             {{ Form::password('password') }}
@@ -31,7 +31,7 @@
             {{ Form::label('password_confirmation', 'Re-type password:') }}
             {{ Form::password('password_confirmation') }}
         </div>
---}}
+-->
         <div class="pure-controls">
             {{ Form::submit('Save', ['class' => 'pure-button pure-button-primary']) }}
         </div>
