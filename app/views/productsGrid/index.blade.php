@@ -5,6 +5,7 @@ Products
 @stop
 
 @section('toolbar')
+{{ Form::open(['route' => ['productsGrid.destroy', 'delete'], 'method' => 'delete']) }}
 <a href="{{ route('productsGrid.create') }}">Add Product</a>
 @stop
 
@@ -21,12 +22,16 @@ Products
 @foreach(Product::all() as $product)
 
 <tr>
-    <td><!-- CHECKBOX --></td>
+    <td>{{ Form::checkbox('for_delete[]', $product->id) }}</td>
     <td>{{ $product->brand->name . ' ' . $product->name }}</td>
     <td>{{ $product->selling_price }}</td>
     <td>{{ $product->quantity }}</td>
     <td>{{ $product->type->description }}</td>
+    <td></td>
 </tr>
 
 @endforeach
+
+{{ Form::close() }}
+
 @stop
