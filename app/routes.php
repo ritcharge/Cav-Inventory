@@ -27,10 +27,10 @@ Route::get('/logout', 'SessionsController@destroy');
 //Route::resource('userProfile', 'UserProfileController' );
 //Route::get('/userProfile/{userProfile}', 'UserProfileController@show')->before('auth');
 
-Route::get('suppliers',function(){$suppliers = Supplier::all();
+Route::get('inventory',function(){$inventory = InventoryLog::all();
 
 
-    return View::make('SuppliersGrid.index');
+    return View::make('InventoryLogGrid.index');
 });
 //=======
 Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'update', 'edit']]);
@@ -38,18 +38,22 @@ Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'upd
 
 // USERS GRID
 Route::resource('usersGrid', 'UsersGridController');
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //>>>>>>> upstream/r-dev-branch
-//SUPPLIERS
-Route::resource('SuppliersGrid', 'SuppliersGridController');
-=======
-
-
-//Route::get('/brand', function (){
-//
-//    return Brand::find(1)->brand_name;});
+//INVENTORY_LOG
+Route::resource('InventoryLogGrid', 'InventoryLogGridController');
+//=======
 
 // PRODUCTS GRID
 Route::resource('productsGrid', 'ProductsGridController');
 
->>>>>>> upstream/web-dev
+//>>>>>>> upstream/web-dev
+
+
+//SALES PAYMENT LOG
+Route::resource('SalesPaymentLogGrid', 'SalesPaymentLogGridController');
+
+//DELIVERY LOG
+Route::resource('DeliveryLogGrid', 'DeliveryLogGridController');
+
+
