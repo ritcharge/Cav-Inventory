@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'cav-inventory',
 			'username'  => 'root',
-			'password'  => 'restarted',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
