@@ -21,7 +21,7 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function create()
 	{
-        //
+		return View::make('brandsGrid.create');
 	}
 
 
@@ -32,7 +32,22 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function store()
 	{
-        //
+		$input = Input::all();
+        
+		if(Brand::isValid($input)) 
+        {
+            // Add new brand name
+            
+            //return $input['brand_name'];
+            
+            Brand::create([
+                'brand_name' => $input['brand_name']
+            ]);
+            
+            return Redirect::route('brandsGrid.index');
+        }
+        
+        return Redirect::back();
 	}
 
 
@@ -57,7 +72,7 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('brandsGrid.edit', ['brandsGrid' => $id]);
 	}
 
 
@@ -69,7 +84,15 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function update($id)
     {
-        //
+		if(User::isValid(Input::all())) {
+            $brand = Brand::find($id);
+            $brand->brand_name = Input::get('brand_name');
+            $brand->save();
+            
+            return Redirect::route('brandsGrid.index');
+        }
+        
+        return "ERROR";
     }
 
 	/**
@@ -80,7 +103,11 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-        //
+		$brandForDeletion = Input::get('for_delete');
+        
+        foreach($brandForDeletion as $brand) Brand::find($brand)->delete();
+        
+        return Redirect::route('brandsGrid.index');
 	}
 
 }
