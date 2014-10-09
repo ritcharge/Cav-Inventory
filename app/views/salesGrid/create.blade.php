@@ -14,7 +14,17 @@ Add New Sales Invoice
 {{ Form::label('customer_contact', 'Contact Number') }}
 {{ Form::input('tel', 'customer_contact') }}
 
-<!-- TODO: Item selection -->
+<h4>Item Orders</h4>
+
+<script type="text/javascript">
+
+    <?php
+        
+        
+    
+    ?>
+
+</script>
 
 {{ Form::submit('Save') }}
 
