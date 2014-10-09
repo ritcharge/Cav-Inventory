@@ -32,3 +32,6 @@ Route::resource('usersGrid', 'UsersGridController');
 // PRODUCTS GRID
 Route::resource('productsGrid', 'ProductsGridController');
 
+// SALES GRID
+Route::resource('salesGrid', 'SalesGridController');
+
