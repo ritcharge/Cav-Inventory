@@ -1,17 +1,9 @@
 <?php
-    class Brand extends Eloquent
-    {
-        protected $table = "Brands";
+    class Brand extends Eloquent {
         
-        protected $fillable = ['brand_name'];
-            public $timestamps = false;
+        protected $table = 'brands';
         
-            public static function isValid($input) {
-        $validate = Validator::make($input, [
-            'brand_name' => 'required'
-        ]);
-        
-        return $validate->passes();
-            }
+        protected $fillable = ['name'];
+
     }
 ?>
