@@ -28,3 +28,10 @@ Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'upd
 
 // USERS GRID
 Route::resource('usersGrid', 'UsersGridController');
+
+//BRANDS
+Route::resource('brandsGrid', 'BrandsGridController');
+
+//Route::get('/brand', function (){
+//
+//    return Brand::find(1)->brand_name;});
