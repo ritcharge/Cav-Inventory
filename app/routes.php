@@ -29,6 +29,8 @@ Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'upd
 // USERS GRID
 Route::resource('usersGrid', 'UsersGridController');
 
+// BRAND
+Route:: resource('brandsGrid', 'BrandsGridController');
 
 //Route::get('/brand', function (){
 //
