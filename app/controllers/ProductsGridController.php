@@ -16,7 +16,19 @@ class ProductsGridController extends \BaseController {
 
 	public function store()
 	{
-		//
+		$input = Input::all();
+        
+        // TODO validation
+        
+        Product::create([
+            'product_name' => $input['product_name'],
+            'selling_price' => $input['selling_price'],
+            'quantity' => $input['quantity'],
+            'product_type_id' => $input['product_type_id'],
+            'brand_id' => $input['brand_id']
+        ]);
+        
+        return Redirect::route('productsGrid.index');
 	}
 
 

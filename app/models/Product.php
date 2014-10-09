@@ -16,7 +16,7 @@ class Product extends Eloquent {
     
     public function type() {
         
-        return $this->belongsTo('ProductType');
+        return $this->belongsTo('ProductType', 'product_type_id');
     }
     
     public function logs() {

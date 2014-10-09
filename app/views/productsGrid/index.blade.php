@@ -14,6 +14,7 @@ Products
 <th>Price</th>
 <th>Quantity</th>
 <th>Type</th>
+<th>Actions</th>
 @stop
 
 @section('table-contents')
@@ -21,10 +22,10 @@ Products
 
 <tr>
     <td><!-- CHECKBOX --></td>
-    <td>{{ '$product->brand()->name $product->name' }}</td>
+    <td>{{ $product->brand->name . ' ' . $product->name }}</td>
     <td>{{ $product->selling_price }}</td>
     <td>{{ $product->quantity }}</td>
-    <td>{{ $product->type()->description }}</td>
+    <td>{{ $product->type->description }}</td>
 </tr>
 
 @endforeach
