@@ -24,6 +24,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password', 'remember_token');
+    
+    /**
+     * Error messages when the validation fails.
+     */
+    public static $errors;
 
     /** 
      * To get description of user type, use this function like so:
@@ -43,6 +48,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             'password_confirmation' => 'sometimes|required'
         ]);
         
-        return $validate->passes();
+        $validation_result = $validate->passes();
+        
+        // To call static variables in a class, use static::$variable
+        static::$errors = $validate->messages();
+        
+        return $validation_result;
     }
 }

@@ -11,6 +11,8 @@ Template for ever page
         <!--Using stylesheets in Public folder-->
         {{ HTML::style('css/cav/cav-style-general.css'); }} <!--Custom Styles That I Made-->
         {{ HTML::style('css/pure-release-0.5.0/pure-min.css'); }}
+        {{ HTML::style('css/bootstrap/bootstrap.css') }}
+        {{ HTML::style('css/bootstrap/bootstrap-theme.css') }}
         <!--[if lte IE 8]>
             {{ HTML::style('css/pure-release-0.5.0/grids-responsive-old-ie-min.css'); }}
             {{ HTML::style('css/layouts/side-menu-old-ie.cs') }}
@@ -59,6 +61,8 @@ Template for ever page
                 @yield('view')
 			</div>
 		</div>
-	{{ HTML::script('js/ui.js') }}
+	{{ HTML::script('js/bootstrap.js') }}
+    {{ HTML::script('js/bootstrap-min.js') }}
+    {{ HTML::script('js/ui.js') }}
     </body>
 </html>

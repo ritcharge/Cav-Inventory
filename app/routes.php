@@ -38,6 +38,18 @@ Route::resource('userProfile', 'UserProfileController', ['only' => ['show', 'upd
 
 // USERS GRID
 Route::resource('usersGrid', 'UsersGridController');
+<<<<<<< HEAD
 //>>>>>>> upstream/r-dev-branch
 //SUPPLIERS
 Route::resource('SuppliersGrid', 'SuppliersGridController');
+=======
+
+
+//Route::get('/brand', function (){
+//
+//    return Brand::find(1)->brand_name;});
+
+// PRODUCTS GRID
+Route::resource('productsGrid', 'ProductsGridController');
+
+>>>>>>> upstream/web-dev
