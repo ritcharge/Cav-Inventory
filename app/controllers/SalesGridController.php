@@ -44,7 +44,7 @@ class SalesGridController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('salesGrid.edit', ['id' => $id]);
 	}
 
 
