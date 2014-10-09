@@ -38,15 +38,13 @@ Route::resource('inventoryLogsGrid', 'InventoryLogGridController');
 // PRODUCTS GRID
 Route::resource('productsGrid', 'ProductsGridController');
 
-<<<<<<< HEAD
+
 //SALES PAYMENT LOG
 Route::resource('salesPaymentLogGrid', 'SalesPaymentLogGridController');
 
 //DELIVERY LOG
 Route::resource('deliveryLogGrid', 'DeliveryLogGridController');
 
-=======
 // SALES GRID
 Route::resource('salesGrid', 'SalesGridController');
->>>>>>> web-dev-products-grid
 
