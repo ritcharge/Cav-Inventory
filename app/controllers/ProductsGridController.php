@@ -62,7 +62,11 @@ class ProductsGridController extends \BaseController {
 
 	public function destroy($id)
 	{
-		//
+		$forDelete = Input::get('for_delete');
+        
+        foreach($forDelete as $product) Product::find($product)->delete();
+        
+        return Redirect::route('productsGrid.index');
 	}
 
 
