@@ -40,7 +40,7 @@ class ProductsGridController extends \BaseController {
 
 	public function edit($id)
 	{
-		return View::make('producstsGrid.edit', ['id' => $id]);
+		return View::make('productsGrid.edit', ['id' => $id]);
 	}
 
 	public function update($id)

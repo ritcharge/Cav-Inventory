@@ -27,7 +27,9 @@ Products
     <td>{{ $product->selling_price }}</td>
     <td>{{ $product->quantity }}</td>
     <td>{{ $product->type->description }}</td>
-    <td></td>
+    <td>
+        <a href="{{ route('productsGrid.edit', $product->id) }}">Edit</a>
+    </td>
 </tr>
 
 @endforeach
