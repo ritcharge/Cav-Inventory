@@ -44,7 +44,6 @@
     {{ Form::close() }}
 @stop
 
-@section ('modal')
         <div id="delete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

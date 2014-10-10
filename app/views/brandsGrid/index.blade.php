@@ -1,3 +1,4 @@
+
 @extends('layouts.grid')
 
 @section ('title')
@@ -6,9 +7,7 @@
 @stop
 
 @section('toolbar')
-    {{ Form::open(['route' => ['brandsGrid.destroy', 'delete'], 'method' => 'DELETE']) }}
-    <a class="pure-button pure-button-primary" href="{{ route('brandsGrid.create') }}">Add Brand</a>
-    {{ Form::submit('Delete Brand', ['class' => 'pure-button']) }}
+
 <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -40,7 +39,7 @@
     @foreach(Brand::all() as $brand)
         <tr>
             <td>
-                <!--TEMPORARY. REPLACE WITH PROPER CHECKBOX THRU FORMBUILDER-->
+                TEMPORARY. REPLACE WITH PROPER CHECKBOX THRU FORMBUILDER
                 {{ Form::checkbox('for_delete[]', $brand->id, false, ['class' => 'pure-checkbox']) }}
             </td>
             <td>

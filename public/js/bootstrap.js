@@ -836,7 +836,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     this.options        = options
     this.$body          = $(document.body)
     this.$element       = $(element)
-    this.$backdrop      =
+    this.$backdrop      = 
     this.isShown        = null
     this.scrollbarWidth = 0
 

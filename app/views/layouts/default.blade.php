@@ -61,8 +61,6 @@ Template for ever page
                 @yield('view')
 			</div>
 		</div>
-	{{ HTML::script('js/bootstrap.js') }}
-    {{ HTML::script('js/bootstrap-min.js') }}
     {{ HTML::script('js/ui.js') }}
     </body>
 </html>
