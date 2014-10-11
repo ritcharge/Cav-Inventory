@@ -95,7 +95,28 @@ class SalesGridController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$sales = Sales::find($id);
+        $input = Input::all();
+        
+        $items = $input['item'];
+        $qty = $input['qty'];
+        
+        // TODO validation
+        
+        $sales->customer_name = $input['customer_name'];
+        $sales->customer_contact = $input['customer_contact'];
+        $sales->added_by = Auth::user()->id;
+        $sales->balance = static::getTotalAmount($items, $qty);
+        $sales->save();
+        
+        for($i = 0; $i < sizeof($items); $i++) {
+            
+            $itembreakdown = ItemBreakdown::firstOrCreate(['sales_id' => $id, 'product_id' => $items[$i]]);
+            $itembreakdown->quantity = $qty[$i];
+            $itembreakdown->save();
+        }
+        
+        return Redirect::route('salesGrid.index');
 	}
 
 	public function destroy($id)

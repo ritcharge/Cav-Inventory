@@ -6,7 +6,7 @@ Edit Sales Invoice
 
 @section('view')
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
-{{ Form::open(['route' => 'salesGrid.update', 'method' => 'PUT']) }}
+{{ Form::open(['route' => ['salesGrid.update', $id], 'method' => 'PUT']) }}
 
 <?php
 $sales = Sales::find($id);
@@ -32,11 +32,13 @@ $sales = Sales::find($id);
     <?php
     
     $z = 0; // Some counter
+    
+    echo $sales->items;
     foreach($sales->items as $item) {
         
         echo 
         '
-        addDropdown(' . $z . ', ' . $item->product_id . ', ' . $item->quantity . ');
+        addDropdown(' . $z++ . ', ' . $item->product_id . ', ' . $item->quantity . ');
         
         ';
     }
@@ -54,6 +56,9 @@ $sales = Sales::find($id);
      * Add a new drop down list of all products grouped by product type sorted by brand
      */
     function addDropdown(i, product_id, qty) {
+        
+//        console.log(product_id);
+        
         i++;
         
         var dropdownGroup = document.getElementById('dropdown_group');  // Div containing all dropdown elements.
@@ -62,6 +67,7 @@ $sales = Sales::find($id);
 //        dropdownGroup.setAttribute('id', i.toString());
         dropdownDiv.setAttribute('id', i.toString());
         dropdown.setAttribute('name', 'item[]');
+//        dropdown.setAttribute('disabled', 'true');
         dropdownDiv.appendChild(dropdown);
         dropdownGroup.appendChild(dropdownDiv);
         
@@ -129,7 +135,7 @@ $sales = Sales::find($id);
                     '
                     var opt' . $x . ' = document.createElement("option");
                     opt' . $x . '.setAttribute("value", ' . $product->id . ');
-                    opt' . $x . '.setAttribute("selected", product_id == ' . $product->id . ');
+                    if(product_id == ' . $product->id . ') opt' . $x . '.setAttribute("selected", "true");
                     
                     var prodName' . $x . '=document.createTextNode("'. $brand->name . ' ' . $product->product_name . '");
                     opt' . $x . '.appendChild(prodName' . $x . ');
