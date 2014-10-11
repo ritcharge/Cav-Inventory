@@ -38,7 +38,7 @@ $sales = Sales::find($id);
         
         echo 
         '
-        addDropdown(' . $z++ . ', ' . $item->product_id . ', ' . $item->quantity . ');
+        addDropdown(' . $z++ . ', ' . $item->product_id . ', ' . $item->quantity . ', ' . $item->id . ');
         
         ';
     }
@@ -55,7 +55,7 @@ $sales = Sales::find($id);
     /**
      * Add a new drop down list of all products grouped by product type sorted by brand
      */
-    function addDropdown(i, product_id, qty) {
+    function addDropdown(i, product_id, qty, id) {
         
 //        console.log(product_id);
         
@@ -77,6 +77,14 @@ $sales = Sales::find($id);
         qtyInput.setAttribute('type', 'number');
         qtyInput.setAttribute('value', qty == null ? 0 : qty);
         dropdownDiv.appendChild(qtyInput);
+        
+        // HIDDEN ID INPUT
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('name', '_id[]');
+        hiddenInput.setAttribute('type', 'text');
+        hiddenInput.setAttribute('hidden', true);
+        hiddenInput.setAttribute('value', id == null ? 0 : id);
+        dropdownDiv.appendChild(hiddenInput);
         
         // Buttons
         if(i == 1) {

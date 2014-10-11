@@ -100,6 +100,7 @@ class SalesGridController extends \BaseController {
         
         $items = $input['item'];
         $qty = $input['qty'];
+        $_id = $input['_id'];
         
         // TODO validation
         
@@ -111,9 +112,23 @@ class SalesGridController extends \BaseController {
         
         for($i = 0; $i < sizeof($items); $i++) {
             
-            $itembreakdown = ItemBreakdown::firstOrCreate(['sales_id' => $id, 'product_id' => $items[$i]]);
-            $itembreakdown->quantity = $qty[$i];
-            $itembreakdown->save();
+            if($_id[$i] == 0) {
+                
+                // Create new
+                ItemBreakdown::create([
+                    'sales_id' => $id,
+                    'product_id' => $items[$i],
+                    'quantity' => $qty[$i]
+                ]);
+            }
+            else {
+                
+                $itembreakdown = ItemBreakdown::find($id);
+                $itembreakdown->product_id = $items[$i];
+                $itembreakdown->quantity = $qty[$i];
+                $itembreakdown->save();
+            }
+            
         }
         
         return Redirect::route('salesGrid.index');
