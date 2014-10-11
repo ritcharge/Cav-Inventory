@@ -69,7 +69,7 @@ $sales = Sales::find($id);
         var qtyInput = document.createElement('input');
         qtyInput.setAttribute('name', 'qty[]');
         qtyInput.setAttribute('type', 'number');
-        qtyInput.setAttribute('value', qty);
+        qtyInput.setAttribute('value', qty == null ? 0 : qty);
         dropdownDiv.appendChild(qtyInput);
         
         // Buttons

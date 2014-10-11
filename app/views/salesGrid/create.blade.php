@@ -51,6 +51,7 @@ Add New Sales Invoice
         var qtyInput = document.createElement('input');
         qtyInput.setAttribute('name', 'qty[]');
         qtyInput.setAttribute('type', 'number');
+        qtyInput.setAttribute('value', 0);
         dropdownDiv.appendChild(qtyInput);
         
         // Buttons
