@@ -14,5 +14,10 @@
             
             return $this->hasMany('SalesPaymentLog');
         }
+        
+        public function items() {
+            
+            return $this->hasMany('ItemBreakdown');
+        }
     }
 ?>

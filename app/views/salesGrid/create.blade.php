@@ -29,20 +29,54 @@ Add New Sales Invoice
 <script type="text/javascript">
     
     
-    addNewItemDropDown();
+    addDropdown(0);
+    
+    function deleteDropdown(i) {
+        var deleteElement = document.getElementById(i);
+        var delParent = deleteElement.parentElement;
+        
+        if(delParent) delParent.removeChild(deleteElement);        
+    }
     
     /**
      * Add a new drop down list of all products grouped by product type sorted by brand
      */
-    function addNewItemDropDown() {
+    function addDropdown(i) {
+        i++;
         
         var dropdownGroup = document.getElementById('dropdown_group');  // Div containing all dropdown elements.
-//        console.log(dropdownGroup);
         var dropdownDiv = document.createElement('div');    // Div containing individual dropdown elements.
         var dropdown = document.createElement('select');
+//        dropdownGroup.setAttribute('id', i.toString());
+        dropdownDiv.setAttribute('id', i.toString());
         dropdown.setAttribute('name', 'item[]');
         dropdownDiv.appendChild(dropdown);
         dropdownGroup.appendChild(dropdownDiv);
+        
+        // QTY INPUT
+        var qtyInput = document.createElement('input');
+        qtyInput.setAttribute('name', 'qty[]');
+        qtyInput.setAttribute('type', 'number');
+        qtyInput.setAttribute('value', 0);
+        dropdownDiv.appendChild(qtyInput);
+        
+        // Buttons
+        if(i == 1) {
+            var addButton = document.createElement('a');
+            var addText = document.createTextNode('+');
+            addButton.setAttribute('onclick', 'addDropdown(' + i + ')');
+            addButton.appendChild(addText);
+            dropdownDiv.appendChild(addButton);
+        }
+        
+        if(i > 1) {
+            var delButton = document.createElement('a');
+            var delText = document.createTextNode('-');
+            delButton.setAttribute('onclick', 'deleteDropdown(' + i +')');
+            delButton.appendChild(delText);
+            dropdownDiv.appendChild(delButton);
+        }
+        
         
         <?php
         
@@ -93,7 +127,8 @@ Add New Sales Invoice
             }
         }
         
-        ?>    
+        ?>   
+        
     }
 </script>
 

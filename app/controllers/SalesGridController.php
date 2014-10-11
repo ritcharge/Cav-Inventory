@@ -16,18 +16,53 @@ class SalesGridController extends \BaseController {
 		return View::make('salesGrid.create');
 	}
 
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+        
+        // TODO validation
+        
+//        return $input;
+        
+//        return static::getTotalAmount($input['item'], $input['qty']);
+        $items = $input['item'];
+        $qty = $input['qty'];
+        
+        // Create Sales
+        $newSales = Sales::create([
+            'customer_name' => $input['customer_name'],
+            'customer_contact' => $input['customer_contact'],
+            'added_by' => Auth::user()->id,
+            'balance' => static::getTotalAmount($items, $qty)
+        ]);
+        
+        
+        // Create items in item breakdown
+        for($i = 0; $i < sizeof($items); $i++) {
+            
+            ItemBreakdown::create([
+                'sales_id' => $newSales->id,
+                'product_id' => $items[$i],
+                'quantity' => $qty[$i]
+            ]);
+        }
+        
+        return Redirect::route('salesGrid.index');
 	}
 
 
+    private static function getTotalAmount($products, $quantities) {
+        
+        $totalAmount = 0;
+        
+        for($i = 0; $i < sizeof($products); $i++) {
+            
+            $totalAmount += Product::find($products[$i])->selling_price * $quantities[$i];
+        }
+        
+        return $totalAmount;
+    }
+    
 	/**
 	 * Display the specified resource.
 	 *
@@ -60,19 +95,52 @@ class SalesGridController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$sales = Sales::find($id);
+        $input = Input::all();
+        
+        $items = $input['item'];
+        $qty = $input['qty'];
+        $_id = $input['_id'];
+        
+        // TODO validation
+        
+        $sales->customer_name = $input['customer_name'];
+        $sales->customer_contact = $input['customer_contact'];
+        $sales->added_by = Auth::user()->id;
+        $sales->balance = static::getTotalAmount($items, $qty);
+        $sales->save();
+        
+        for($i = 0; $i < sizeof($items); $i++) {
+            
+            if($_id[$i] == 0) {
+                
+                // Create new
+                ItemBreakdown::create([
+                    'sales_id' => $id,
+                    'product_id' => $items[$i],
+                    'quantity' => $qty[$i]
+                ]);
+            }
+            else {
+                
+                $itembreakdown = ItemBreakdown::find($id);
+                $itembreakdown->product_id = $items[$i];
+                $itembreakdown->quantity = $qty[$i];
+                $itembreakdown->save();
+            }
+            
+        }
+        
+        return Redirect::route('salesGrid.index');
 	}
 
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
-		//
+		$forDelete = Input::get('for_delete');
+        
+        foreach($forDelete as $sales) Sales::find($sales)->delete();
+        
+        return Redirect::route('salesGrid.index');
 	}
 
 

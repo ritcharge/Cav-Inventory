@@ -6,7 +6,9 @@ Products
 
 @section('toolbar')
 <div><h2>Sales</h2></div>
-<a class = "pure-button pure-button-primary" href="{{ route('salesGrid.create') }}">Add Product</a>
+{{ Form::open(['route' => ['salesGrid.destroy', 'delete'], 'method' => 'delete']) }}
+<a href="{{ route('salesGrid.create') }}">Add Sales Invoice</a>
+{{ Form::submit('Delete') }}
 @stop
 
 @section('table-headers')
@@ -22,7 +24,19 @@ Products
 @section('table-contents')
 
 @foreach(Sales::all() as $sales)
-    <!-- TODO: Fill grid with info -->
+<tr>
+    <td>{{ Form::checkbox('for_delete[]', $sales->id) }}</td>
+    <td>{{ $sales->id }}</td>
+    <td>{{ $sales->customer_name }}</td>
+    <td>{{ $sales->customer_contact }}</td>
+    <td>{{ 'Php' . ' ' . $sales->balance }}</td>
+    <td>{{ $sales->addedBy->username }}</td>
+    <td>
+        <a href="{{ route('salesGrid.edit', $sales->id) }}">Edit</a>
+    </td>
+</tr>
 @endforeach
+
+{{ Form::close() }}
 
 @stop
