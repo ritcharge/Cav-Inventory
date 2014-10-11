@@ -16,18 +16,42 @@ class SalesGridController extends \BaseController {
 		return View::make('salesGrid.create');
 	}
 
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+        
+        // TODO validation
+        
+//        return $input;
+        
+//        return static::getTotalAmount($input['item'], $input['qty']);
+        
+        // Create Sales
+        Sales::create([
+            'customer_name' => $input['customer_name'],
+            'customer_contact' => $input['customer_contact'],
+            'added_by' => Auth::user()->id,
+            'balance' => static::getTotalAmount($input['item'], $input['qty'])
+        ]);
+        
+        // Create items in item breakdown
+        
+        return Redirect::route('salesGrid.index');
 	}
 
 
+    private static function getTotalAmount($products, $quantities) {
+        
+        $totalAmount = 0;
+        
+        for($i = 0; $i < sizeof($products); $i++) {
+            
+            $totalAmount += Product::find($products[$i])->selling_price * $quantities[$i];
+        }
+        
+        return $totalAmount;
+    }
+    
 	/**
 	 * Display the specified resource.
 	 *

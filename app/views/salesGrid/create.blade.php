@@ -47,6 +47,12 @@ Add New Sales Invoice
         dropdownDiv.appendChild(dropdown);
         dropdownGroup.appendChild(dropdownDiv);
         
+        // QTY INPUT
+        var qtyInput = document.createElement('input');
+        qtyInput.setAttribute('name', 'qty[]');
+        qtyInput.setAttribute('type', 'number');
+        dropdownDiv.appendChild(qtyInput);
+        
         // Buttons
         if(i == 1) {
             var addButton = document.createElement('a');
@@ -114,8 +120,8 @@ Add New Sales Invoice
             }
         }
         
-        ?>    
-            
+        ?>   
+        
     }
 </script>
 
