@@ -13,9 +13,9 @@ Products
 {{ Form::open(['route' => ['productsGrid.destroy', 'delete'], 'method' => 'delete']) }}
 <div><h2>Products</h2></div>
 <a class = "pure-button pure-button-primary" href="{{ route('productsGrid.create') }}">Add Product</a>
-<a type='button' style = 'text-decoration: none' class='pure-button' data-toggle='modal' data-target='#delete'>Delete Product</a>
-        <script src="js/jquery-2.1.1.js"></script>
-        <script src="js/bootstrap.js"></script>   <!-- modal-content -->
+<a type='button' class='pure-button' data-toggle='modal' data-target='#delete'>Delete Product</a>
+        {{ HTML::script('js/jquery-2.1.1.js') }}
+        {{ HTML::script('js/bootstrap.js') }}
 @stop
 
 @section('table-headers')

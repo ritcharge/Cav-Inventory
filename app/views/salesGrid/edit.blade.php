@@ -7,23 +7,27 @@ Edit Sales Invoice
 @section('view')
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
 <div><h2>Edit Sales</h2></div>
-{{ Form::open(['route' => ['salesGrid.update', $id], 'method' => 'PUT']) }}
+{{ Form::open(['route' => ['salesGrid.update', $id], 'method' => 'PUT', 'class' => 'pure-form pure-form-aligned cav-form-stacked-1']) }}
 
 <?php
 $sales = Sales::find($id);
 ?>
-
+<div class="pure-control-group">
 {{ Form::label('cutomer_name', 'Customer Name') }}
 {{ Form::text('customer_name', $sales->customer_name) }}
-
-{{ Form::label('customer_contact', 'Contact Number') }}
-{{ Form::input('tel', 'customer_contact', $sales->customer_contact) }}
-
-<label>Item Orders</label>
-<div id="dropdown_group">
-    
 </div>
 
+<div class="pure-control-group">
+{{ Form::label('customer_contact', 'Contact Number') }}
+{{ Form::input('tel', 'customer_contact', $sales->customer_contact) }}
+</div>
+
+<div class="pure-control-group">
+<br>
+<label>Item Orders:</label>
+<br>
+<div style = "margin-left: 60px" id="dropdown_group" ><br></div>
+</div>
 
 <script type="text/javascript">
     
@@ -162,7 +166,9 @@ $sales = Sales::find($id);
     
 </script>
 
-{{ Form::submit('Save') }}
+<div class="pure-controls">
+{{ Form::submit('Save', ['class' => 'pure-button pure-button-primary']) }}
+</div>
 
 {{ Form::close() }}
 @stop

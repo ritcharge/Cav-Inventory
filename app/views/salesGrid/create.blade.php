@@ -7,24 +7,24 @@ Add New Sales Invoice
 @section('view')
 <div><h2>Add New Product</h2></div>
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
-<!--{{ Form::open(['route' => 'salesGrid.store', 'class' => 'pure-form pure-form-aligned']) }}-->
+{{ Form::open(['route' => 'salesGrid.store', 'class' => 'pure-form pure-form-aligned']) }}
 
 <div class="pure-control-group">
-{{ Form::label('cutomer_name', 'Customer Name') }}
+{{ Form::label('cutomer_name', 'Customer Name: ') }}
 {{ Form::text('customer_name') }}
 </div>
 
 <div class="pure-control-group">
-{{ Form::label('customer_contact', 'Contact Number') }}
+{{ Form::label('customer_contact', 'Contact Number: ') }}
 {{ Form::input('tel', 'customer_contact') }}
 </div>
     
-
-<label>Item Orders</label>
-<div id="dropdown_group">
-    
+<div class="pure-control-group">
+<br>
+<label>Item Orders:</label>
+<br>
+<div style = "margin-left: 60px" id="dropdown_group" ><br></div>
 </div>
-
 
 <script type="text/javascript">
     
@@ -132,7 +132,9 @@ Add New Sales Invoice
     }
 </script>
 
-{{ Form::submit('Save') }}
+<div class="pure-controls">
+{{ Form::submit('Save', ['class' => 'pure-button pure-button-primary']) }}
+</div>
 
 {{ Form::close() }}
 @stop
