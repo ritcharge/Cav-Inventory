@@ -25,16 +25,27 @@ class SalesGridController extends \BaseController {
 //        return $input;
         
 //        return static::getTotalAmount($input['item'], $input['qty']);
+        $items = $input['item'];
+        $qty = $input['qty'];
         
         // Create Sales
-        Sales::create([
+        $newSales = Sales::create([
             'customer_name' => $input['customer_name'],
             'customer_contact' => $input['customer_contact'],
             'added_by' => Auth::user()->id,
-            'balance' => static::getTotalAmount($input['item'], $input['qty'])
+            'balance' => static::getTotalAmount($items, $qty)
         ]);
         
+        
         // Create items in item breakdown
+        for($i = 0; $i < sizeof($items); $i++) {
+            
+            ItemBreakdown::create([
+                'sales_id' => $newSales->id,
+                'product_id' => $items[$i],
+                'quantity' => $qty[$i]
+            ]);
+        }
         
         return Redirect::route('salesGrid.index');
 	}
