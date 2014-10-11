@@ -5,6 +5,7 @@
 @stop
 
 @section('toolbar')
+        <div><h2>Users</h2></div>
         <a class='pure-button pure-button-primary' style = 'text-decoration: none' href="{{ route('usersGrid.create') }}">Add User</a>
         <a type='button' style = 'text-decoration: none' class='pure-button' data-toggle='modal' data-target='#delete'>Delete User</a>
         <script src="js/jquery-2.1.1.js"></script>
