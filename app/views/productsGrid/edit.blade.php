@@ -5,6 +5,7 @@ Edit Product
 @stop
 
 @section('view')
+<div><h2>Edit Product</h2></div>
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', class' => '*class goes here*'] -->
 {{ Form::open(['route' => ['productsGrid.update', $id], 'method' => 'PUT']) }}
 

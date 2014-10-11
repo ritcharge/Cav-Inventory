@@ -5,7 +5,9 @@ Add New Product
 @stop
 
 @section('view')
+<div><h2>Add New Product</h2></div>
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
+<!--
 {{ Form::open(['route' => 'productsGrid.store']) }}
 
 {{ Form::label('product_type_id', 'Product Type') }}
@@ -26,4 +28,5 @@ Add New Product
 {{ Form::submit('Save') }}
 
 {{ Form::close() }}
+-->
 @stop

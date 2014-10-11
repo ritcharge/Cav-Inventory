@@ -6,6 +6,7 @@ Add New Sales Invoice
 
 @section('view')
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
+<div><h2>Edit Sales</h2></div>
 {{ Form::open(['route' => 'salesGrid.update', 'method' = 'PUT']) }}
 <?php
 $sales = Sales::find($id);

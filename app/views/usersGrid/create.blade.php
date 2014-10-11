@@ -6,6 +6,7 @@
 
 @section('view')
     {{ Form::open(['route' => 'usersGrid.store', 'class' => 'pure-form pure-form-aligned']) }}
+        <div><h2>Add New User</h2></div>
         <div class="pure-control-group">
             {{ Form::label('username', 'Username: ') }}
             {{ Form::text('username') }}

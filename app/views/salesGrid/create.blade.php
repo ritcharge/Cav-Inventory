@@ -5,14 +5,20 @@ Add New Sales Invoice
 @stop
 
 @section('view')
+<div><h2>Add New Product</h2></div>
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
-{{ Form::open(['route' => 'salesGrid.store']) }}
+<!--{{ Form::open(['route' => 'salesGrid.store', 'class' => 'pure-form pure-form-aligned']) }}-->
 
+<div class="pure-control-group">
 {{ Form::label('cutomer_name', 'Customer Name') }}
 {{ Form::text('customer_name') }}
+</div>
 
+<div class="pure-control-group">
 {{ Form::label('customer_contact', 'Contact Number') }}
 {{ Form::input('tel', 'customer_contact') }}
+</div>
+    
 
 <label>Item Orders</label>
 <div id="dropdown_group">
@@ -66,12 +72,12 @@ Add New Sales Invoice
                     
                     $x++;
                     
-                    // Echo script to 
-                    // Create element <option>
-                    // Set attribute value to product id
-                    // Create text node brand->name + product->product_name
-                    // Append text node to <option>
-                    // Append <option> to optGroup+$i
+//                     Echo script to 
+//                     Create element <option>
+//                     Set attribute value to product id
+//                     Create text node brand->name + product->product_name
+//                     Append text node to <option>
+//                     Append <option> to optGroup+$i
                     
                     echo
                     '

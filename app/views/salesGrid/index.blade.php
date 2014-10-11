@@ -5,7 +5,8 @@ Products
 @stop
 
 @section('toolbar')
-<a href="{{ route('salesGrid.create') }}">Add Product</a>
+<div><h2>Sales</h2></div>
+<a class = "pure-button pure-button-primary" href="{{ route('salesGrid.create') }}">Add Product</a>
 @stop
 
 @section('table-headers')

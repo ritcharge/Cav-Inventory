@@ -6,6 +6,7 @@
 
 @section('view')
     {{ Form::open(['route' => ['usersGrid.update', $usersGrid], 'method' => 'PATCH', 'class' => 'pure-form pure-form-aligned cav-form-stacked-1']) }}
+        <div><h2>Edit User</h2></div>
         <div class="pure-control-group">
             {{ Form::label('username', 'Username: ') }}
             {{ Form::text('username', User::find($usersGrid)->username) }}
