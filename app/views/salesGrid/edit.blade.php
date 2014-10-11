@@ -1,15 +1,17 @@
 @extends('layouts.default')
 
 @section('title')
-Add New Sales Invoice
+Edit Sales Invoice
 @stop
 
 @section('view')
 <!-- To add a class to the form, set open() parameter as: ['route' => 'productsGrid.store', 'class' => '*class goes here*'] -->
-{{ Form::open(['route' => 'salesGrid.update', 'method' = 'PUT']) }}
+{{ Form::open(['route' => 'salesGrid.update', 'method' => 'PUT']) }}
+
 <?php
 $sales = Sales::find($id);
 ?>
+
 {{ Form::label('cutomer_name', 'Customer Name') }}
 {{ Form::text('customer_name', $sales->customer_name) }}
 
@@ -25,7 +27,21 @@ $sales = Sales::find($id);
 <script type="text/javascript">
     
     
-    addDropdown(0);
+//    addDropdown(0);
+    
+    <?php
+    
+    $z = 0; // Some counter
+    foreach($sales->items as $item) {
+        
+        echo 
+        '
+        addDropdown(' . $z . ', ' . $item->product_id . ', ' . $item->quantity . ');
+        
+        ';
+    }
+    
+    ?>
     
     function deleteDropdown(i) {
         var deleteElement = document.getElementById(i);
@@ -37,7 +53,7 @@ $sales = Sales::find($id);
     /**
      * Add a new drop down list of all products grouped by product type sorted by brand
      */
-    function addDropdown(i) {
+    function addDropdown(i, product_id, qty) {
         i++;
         
         var dropdownGroup = document.getElementById('dropdown_group');  // Div containing all dropdown elements.
@@ -53,6 +69,7 @@ $sales = Sales::find($id);
         var qtyInput = document.createElement('input');
         qtyInput.setAttribute('name', 'qty[]');
         qtyInput.setAttribute('type', 'number');
+        qtyInput.setAttribute('value', qty);
         dropdownDiv.appendChild(qtyInput);
         
         // Buttons
@@ -112,6 +129,7 @@ $sales = Sales::find($id);
                     '
                     var opt' . $x . ' = document.createElement("option");
                     opt' . $x . '.setAttribute("value", ' . $product->id . ');
+                    opt' . $x . '.setAttribute("selected", product_id == ' . $product->id . ');
                     
                     var prodName' . $x . '=document.createTextNode("'. $brand->name . ' ' . $product->product_name . '");
                     opt' . $x . '.appendChild(prodName' . $x . ');
@@ -125,6 +143,8 @@ $sales = Sales::find($id);
         ?>   
         
     }
+        
+    
 </script>
 
 {{ Form::submit('Save') }}

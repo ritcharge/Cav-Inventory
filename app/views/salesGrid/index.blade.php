@@ -32,7 +32,7 @@ Products
     <td>{{ 'Php' . ' ' . $sales->balance }}</td>
     <td>{{ $sales->addedBy->username }}</td>
     <td>
-        <a href="{{ route('productsGrid.edit', $sales->id) }}">Edit</a>
+        <a href="{{ route('salesGrid.edit', $sales->id) }}">Edit</a>
     </td>
 </tr>
 @endforeach
