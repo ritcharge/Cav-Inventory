@@ -26,8 +26,6 @@ Products
 <th>Type</th>
 <th>Action</th>
 
-<th>Actions</th>
-
 @stop
 
 @section('table-contents')
@@ -40,7 +38,7 @@ Products
     <td>{{ $product->quantity }}</td>
     <td>{{ $product->type->description }}</td>
     <td>
-        <a href="{{ route('productsGrid.edit', $product->id) }}">Edit</a>
+        <a class = 'pure-button' href="{{ route('productsGrid.edit', $product->id) }}">Edit</a>
     </td>
 </tr>
 

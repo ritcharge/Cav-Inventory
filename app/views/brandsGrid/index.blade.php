@@ -20,13 +20,13 @@
     @foreach(Brand::all() as $brand)
         <tr>
             <td>
-                TEMPORARY. REPLACE WITH PROPER CHECKBOX THRU FORMBUILDER
+<!--                TEMPORARY. REPLACE WITH PROPER CHECKBOX THRU FORMBUILDER-->
                 {{ Form::checkbox('for_delete[]', $brand->id, false, ['class' => 'pure-checkbox']) }}
             </td>
             <td>
             </td>
             <td>
-                {{ $brand->brand_name }}
+                {{ $brand->name }}
             </td>
             <td>
                 <a class="pure-button" href="{{ route('brandsGrid.edit', $brand->id) }}"> Edit</a>

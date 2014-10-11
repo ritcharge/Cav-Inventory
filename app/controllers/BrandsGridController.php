@@ -57,7 +57,7 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('brandsGrid.edit', ['brandsGrid' => $id]);
 	}
 
 
@@ -69,8 +69,18 @@ class BrandsGridController extends \BaseController {
 	 */
 	public function update($id)
     {
-        //
-    }
+		if(Brand::isValid(Input::all())) {
+            $brand = Brand::find($id);
+            $brand->name = Input::get('name');
+
+//            $user->password = Hash::make(Input::get('password'));
+            $brand->save();
+            
+            return Redirect::route('brandsGrid.index');
+        }
+        
+        return Redirect::back()->withInput();
+	}
 
 	/**
 	 * Remove the specified resource from storage.
